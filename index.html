@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <head>
-    <title>Цитата дня</title>
+    <title>Random Quote</title>
     <meta charset="utf-8">
     <link href="media/style.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/16/16310.png" type="image/png">
 </head>
 <body>
-    <h1>Случайная цитата:</h1>
+    <h1>Your random quote:</h1>
     <hr>
     <h2 id="quote"></h2>
     <hr>
@@ -15,13 +16,13 @@
     <h2 id="tilda">~</h2>
     <script>
         var request = new XMLHttpRequest();
-        request.open("GET", "http://212.113.118.113:3123/api/v1/get_quote");
+        request.open("GET", "https://zenquotes.io/api/random");
         request.send(null);
         request.responseType = "json";
         request.onload = () => {
         if (request.readyState == 4 && request.status == 200) {
-          document.getElementById('quote').textContent = request.response["quoteText"];
-          document.getElementById('author').textContent = request.response['quoteAuthor'];
+          document.getElementById('quote').textContent = request.response[0]["q"];
+          document.getElementById('author').textContent = request.response[0]['a'];
         }
       }
     </script>
