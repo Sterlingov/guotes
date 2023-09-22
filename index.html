@@ -16,7 +16,7 @@
     <h2 id="tilda">~</h2>
     <script>
         var request = new XMLHttpRequest();
-        request.open("GET", "https://zenquotes.io/api/random");
+        request.open("GET", "https://api.quotable.io");
         request.send(null);
         request.responseType = "json";
         request.onload = () => {
